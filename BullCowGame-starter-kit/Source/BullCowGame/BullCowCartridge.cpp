@@ -5,9 +5,11 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 {
     Super::BeginPlay();
     PrintLine(TEXT("Welcome to Bulls and Cows!"));
-    PrintLine(TEXT("Guess the 4 letter word")); //Magic number needs to change later
+    PrintLine(TEXT("Guess the 4 letter word")); //number needs to change later
     PrintLine(TEXT("Press enter to continue..."));
-    HiddenWord = TEXT("cake");
+
+    SetupGame(); //setting up game;
+    
 }
 
 void UBullCowCartridge::OnInput(const FString & Input) // When the player hits enter
@@ -21,4 +23,10 @@ void UBullCowCartridge::OnInput(const FString & Input) // When the player hits e
     {
         PrintLine(TEXT("You have Lost!"));
     }
+}
+
+void UBullCowCartridge::SetupGame()
+{
+    HiddenWord = TEXT("cake");
+    Lives = 4; 
 }
